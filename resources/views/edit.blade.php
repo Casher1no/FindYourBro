@@ -4,7 +4,7 @@
 
     <div class="d-flex justify-content-center">
 
-        <div class="border rounded-3">
+        <div id="update-profile-window">
             <div class="m-5">
                 <div>
                     <h1>Change Profile Picture</h1>
@@ -19,7 +19,7 @@
                                    value="{{ $user['name'] }}"
                                    name="user_name">
                         </div>
-                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button type="submit" class="btn btn-primary" id="btn-submit">Update</button>
                     </form>
 
                     <form method="POST" action="{{ route("updateProfile") }}" enctype="multipart/form-data">
@@ -28,7 +28,7 @@
                             <label for="formFile" class="form-label">Profile picture</label>
                             <input class="form-control" type="file" id="formFile" name="profile_picture">
                         </div>
-                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button type="submit" class="btn btn-primary" id="btn-submit">Update</button>
                     </form>
 
 

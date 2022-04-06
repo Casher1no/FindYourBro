@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);
+@import url(https://fonts.googleapis.com/css2?family=Kanit:wght@600&display=swap);
 @charset "UTF-8";
 /*!
  * Bootstrap v5.1.3 (https://getbootstrap.com/)
@@ -11291,4 +11291,71 @@ textarea.form-control-lg {
   height: 40px;
   border-radius: 0.5em;
   border: 1px solid #3b3b3b;
+}
+
+* {
+  font-family: "Kanit", sans-serif;
+  color: #950740;
+}
+
+#navbar-color {
+  background: #C3073F;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+}
+
+#body-color {
+  background-color: #1A1A1D;
+  background-attachment: fixed;
+}
+
+.dropdown-menu a:active {
+  background-color: #950740;
+}
+
+#form-window {
+  background-color: transparent;
+  border: none;
+}
+
+#text-button {
+  color: #950740;
+}
+
+#text-button:active {
+  box-shadow: none;
+  color: #6F2232;
+  transition: 0.3s;
+}
+
+#remember {
+  background-color: #950740;
+  border: 0.5px solid #6F2232;
+}
+
+#text-button:hover {
+  color: #950740;
+  transition: 0.3s;
+}
+
+#update-profile-window {
+  width: 40%;
+}
+
+#btn-submit {
+  background-color: #950740;
+  border-radius: 1px;
+  border: none;
+  color: #1A1A1D;
+  transition: 0.3s;
+}
+
+#update-profile-btn:hover {
+  background-color: #C3073F;
+  transition: 0.3s;
+}
+
+#update-profile-btn:focus {
+  box-shadow: none;
+  background-color: #6F2232;
+  transition: 0.3s;
 }
