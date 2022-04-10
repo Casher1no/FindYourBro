@@ -1,0 +1,24 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class UserInfo extends Model
+{
+    use HasFactory;
+
+    protected $table = 'user_info';
+    public $timestamps = false;
+
+    protected $fillable = [
+        'userid',
+        'name',
+        'surname',
+        'gender',
+        'location',
+        'age',
+        'validation',
+    ];
+}

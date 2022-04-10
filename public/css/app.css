@@ -11337,12 +11337,43 @@ textarea.form-control-lg {
   transition: 0.3s;
 }
 
+.radio {
+  display: inline-flex;
+  overflow: hidden;
+  border-radius: 2px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+}
+
+.radio__input {
+  display: none;
+}
+
+.radio__label {
+  padding: 8px 14px;
+  font-size: 14px;
+  color: #1A1A1D;
+  background: #6F2232;
+  background: linear-gradient(180deg, #6F2232 0%, #4E4E50 100%);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.radio__label:not(:last-of-type) {
+  border-right: 2px solid #1A1A1D;
+}
+
+.radio__input:checked + .radio__label {
+  background: #C3073F;
+  transition: 0.2s;
+}
+
 #update-profile-window {
   width: 40%;
 }
 
 #btn-submit {
-  background-color: #950740;
+  background: #6F2232;
+  background: linear-gradient(180deg, #6F2232 0%, #C3073F 100%);
   border-radius: 1px;
   border: none;
   color: #1A1A1D;
@@ -11358,4 +11389,8 @@ textarea.form-control-lg {
   box-shadow: none;
   background-color: #6F2232;
   transition: 0.3s;
+}
+
+#gallery-image {
+  max-width: 100%;
 }

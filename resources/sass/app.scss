@@ -43,28 +43,61 @@ $theme-color-5: #C3073F;
     background-color: $theme-color-4;
 }
 
+
 //Forms
 #form-window {
     background-color: transparent;
     border: none;
 }
-#text-button{
+
+#text-button {
     color: $theme-color-4;
 }
-#text-button:active{
+
+#text-button:active {
     box-shadow: none;
     color: $theme-color-3;
     transition: .3s;
 }
-#remember{
+
+#remember {
     background-color: $theme-color-4;
     border: .5px solid $theme-color-3;
 }
 
-#text-button:hover{
+#text-button:hover {
     color: $theme-color-4;
     transition: .3s;
 }
+
+// Profile Settings gender radio
+.radio{
+    display: inline-flex;
+    overflow: hidden;
+    border-radius: 2px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.25);
+}
+.radio__input{
+    display: none;
+}
+.radio__label{
+    padding: 8px 14px;
+    font-size: 14px;
+    color: $theme-color-1;
+    background: $theme-color-3;
+    background: linear-gradient(180deg, $theme-color-3 0%, $theme-color-2 100%);
+    cursor: pointer;
+    transition: 0.2s;
+}
+.radio__label:not(:last-of-type){
+    border-right: 2px solid $theme-color-1;
+}
+.radio__input:checked + .radio__label{
+    background: $theme-color-5;
+    transition: 0.2s;
+}
+
+
 //Editor
 #update-profile-window {
     width: 40%;
@@ -72,7 +105,8 @@ $theme-color-5: #C3073F;
 
 #btn-submit {
 
-    background-color: $theme-color-4;
+    background: $theme-color-3;
+    background: linear-gradient(180deg, $theme-color-3 0%, $theme-color-5 100%);
     border-radius: 1px;
     border: none;
     color: $theme-color-1;
@@ -89,4 +123,9 @@ $theme-color-5: #C3073F;
     box-shadow: none;
     background-color: $theme-color-3;
     transition: .3s;
+}
+
+//Gallery
+#gallery-image {
+    max-width: 100%;
 }

@@ -2,9 +2,9 @@
 
 namespace Database\Factories;
 
+
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use Intervention\Image\Facades\Image;
 
 
 class UserFactory extends Factory
@@ -17,8 +17,8 @@ class UserFactory extends Factory
     public function definition()
     {
         $path = public_path('images/resized');
-        $image = $this->faker->image($path,400,400);
-        $imageName = explode('/',$image);
+        $image = $this->faker->image($path, 400, 400);
+        $imageName = explode('/', $image);
         $imageName = end($imageName);
 
         return [
@@ -29,6 +29,7 @@ class UserFactory extends Factory
             'remember_token' => Str::random(10),
             'image_path_resized' => $imageName,
         ];
+
     }
 
     /**

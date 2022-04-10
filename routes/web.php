@@ -15,22 +15,39 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-
 Auth::routes();
 
-Route::get('/',function (){
-    return view('/home');
+Route::get('/', function () {
+    return redirect(route('home'));
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
     ->name('home');
 
-Route::get('/edit',[\App\Http\Controllers\ProfileController::class,'edit'])
+
+// Navbar
+Route::get('/edit', [\App\Http\Controllers\ProfileController::class, 'edit'])
     ->name('editProfile')
     ->middleware('auth');
 
-Route::post('/update',[\App\Http\Controllers\ProfileController::class,'update'])
+Route::post('/update', [\App\Http\Controllers\ProfileController::class, 'updatePicture'])
+    ->name('updatePicture')
+    ->middleware('auth');
+
+Route::post('/update/name', [\App\Http\Controllers\ProfileController::class, 'updateProfile'])
     ->name('updateProfile')
     ->middleware('auth');
 
-Route::post('/update/name',[\App\Http\Controllers\ProfileController::class,'updateName'])
-    ->name('updateName');
+Route::get('/gallery', [\App\Http\Controllers\ProfileController::class, 'gallery'])
+    ->name('gallery')
+    ->middleware('auth');
+// ------
+
+// Gallery
+Route::post('/upload', [\App\Http\Controllers\ProfileController::class, 'addToGallery'])
+    ->name('addToGallery')
+    ->middleware('auth');
+
+Route::get('/gallery/delete/{id}', function ($id) {
+    DB::table('user_gallery')->delete($id);
+    return redirect('gallery');
+})->name('deleteFromGallery');
