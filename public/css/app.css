@@ -11312,6 +11312,16 @@ textarea.form-control-lg {
   background-color: #950740;
 }
 
+#link-edit-profile {
+  color: #C3073F;
+  transition: 0.3s;
+}
+
+#link-edit-profile:hover {
+  color: #6F2232;
+  transition: 0.3s;
+}
+
 #form-window {
   background-color: transparent;
   border: none;

@@ -10,3 +10,6 @@ js:
     not-name:
       - webpack.mix.js
 css: true
+sites:
+  - map: something.com
+    to: /home/vagrant/Code/Laravel/public

@@ -42,6 +42,14 @@ $theme-color-5: #C3073F;
 .dropdown-menu a:active {
     background-color: $theme-color-4;
 }
+#link-edit-profile{
+    color: $theme-color-5;
+    transition: .3s;
+}
+#link-edit-profile:hover{
+    color: $theme-color-3;
+    transition: .3s;
+}
 
 
 //Forms

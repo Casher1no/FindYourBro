@@ -80,7 +80,7 @@ class ProfileController extends Controller
                 'user_id' => $user['id'],
                 'name' => $request['user_name'],
                 'surname' => $request['user_surname'],
-                'gender' => $request['btnradio'],
+                'gender' => $request['myRadio'],
                 'location' => $request['user_location'],
                 'age' => $request['user_age'],
             ]);

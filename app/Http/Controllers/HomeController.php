@@ -33,8 +33,13 @@ class HomeController extends Controller
         $userInfo = UserInfo::where('user_id', $user['id'])->first();
         if($userInfo != null) $verified = true;
 
+        $randomUser = User::inRandomOrder()->where('id','!=',$user['id'])->first();
+        $randomUserInfo = UserInfo::where('user_id',$randomUser['id'])->first();
+
         return view('home',[
             'verified'=>$verified,
+            'swipe'=>$randomUser,
+            'swipeInfo'=>$randomUserInfo
         ]);
     }
 
