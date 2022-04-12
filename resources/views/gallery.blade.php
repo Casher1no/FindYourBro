@@ -14,9 +14,7 @@
         </div>
     </div>
 
-
     <div class="w-70 h-25 m-auto pt-5">
-
         <div class="gallery min-vh-100">
             <div class="container-lg">
                 <div class="row gy-4 row-cols-1 row-cols-sm-2 row row-cols-md-3">
@@ -24,14 +22,13 @@
                         <div class="col">
                             <img src="{{ asset('images/gallery/' . $image['image_path'])}}" class="gallery-item"
                                  alt="gallery" id="gallery-image">
-                            <a href="{{ route('deleteFromGallery',['id'=>$image['id']]) }}" class="btn btn-primary w-25 m-auto"
+                            <a href="{{ route('deleteFromGallery',['id'=>$image['id']]) }}"
+                               class="btn btn-primary w-25 m-auto"
                                id="btn-submit">Delete</a>
                         </div>
                     @endforeach
                 </div>
             </div>
         </div>
-
-
     </div>
 @endsection

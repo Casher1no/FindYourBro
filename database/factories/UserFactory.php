@@ -17,7 +17,7 @@ class UserFactory extends Factory
      */
     public function definition()
     {
-        $path = public_path('images/resized');
+        $path = public_path('images');
         $image = $this->faker->image($path, 600, 400);
         $imageName = explode('/', $image);
         $imageName = end($imageName);

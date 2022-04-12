@@ -11300,14 +11300,40 @@ textarea.form-control-lg {
 
 #navbar-color {
   background: #C3073F;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 #body-color {
-  background-color: #1A1A1D;
-  background-attachment: fixed;
+  background: linear-gradient(-45deg, #C3073F, #1A1A1D, #1A1A1D, #C3073F);
+  background-size: 400% 400%;
+  -webkit-animation: gradient 15s ease infinite;
+          animation: gradient 15s ease infinite;
+  height: 100vh;
 }
 
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 .dropdown-menu a:active {
   background-color: #950740;
 }
@@ -11319,7 +11345,27 @@ textarea.form-control-lg {
 
 #link-edit-profile:hover {
   color: #6F2232;
-  transition: 0.3s;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1A1A1D;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C3073F;
+  background: linear-gradient(180deg, #C3073F 0%, #6F2232 100%);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1c1f23;
+}
+
+#swipe-card {
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
 #form-window {
@@ -11329,6 +11375,7 @@ textarea.form-control-lg {
 
 #text-button {
   color: #950740;
+  transition: 0.3s;
 }
 
 #text-button:active {
@@ -11387,7 +11434,12 @@ textarea.form-control-lg {
   border-radius: 1px;
   border: none;
   color: #1A1A1D;
-  transition: 0.3s;
+  transition: 0.1s;
+}
+
+#btn-submit:hover {
+  background: #C3073F;
+  transition: 0.1s;
 }
 
 #update-profile-btn:hover {

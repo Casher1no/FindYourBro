@@ -15,6 +15,6 @@ class UserInfoTableSeeder extends Seeder
      */
     public function run()
     {
-        UserInfo::factory()->count(20)->create();
+        UserInfo::factory()->count(100)->create();
     }
 }

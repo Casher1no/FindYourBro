@@ -62,7 +62,9 @@
                         </div>
                         <button type="submit" class="btn btn-primary" id="btn-submit">Update</button>
                     </form>
-
+                    @if(session()->has('message'))
+                        <p style="color: #4fffac">{{ session()->get('message') }}</p>
+                    @endif
 
                 </div>
             </div>

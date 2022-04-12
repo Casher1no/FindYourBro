@@ -25,15 +25,17 @@
 </head>
 <body id="body-color">
 <div id="app">
-    <nav class="navbar navbar-expand-md navbar-light shadow-sm" id="navbar-color">
+    <nav class="navbar navbar-expand-md navbar-light" id="navbar-color">
         <div class="container">
             @auth
-            <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    {{ config('app.name', 'Laravel') }}
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
             @endauth
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -79,6 +81,16 @@
                                     Edit Profile
                                 </a>
                                 <form id="edit-profile" action="{{ route('editProfile') }}" method="GET" class="d-none">
+                                    @csrf
+                                </form>
+
+                                <a class="dropdown-item" href="{{ route('configuration') }}"
+                                   onclick="event.preventDefault();
+                                            document.getElementById('configuration').submit();">
+                                    Edit Filters
+                                </a>
+                                <form id="configuration" action="{{ route('configuration') }}" method="GET"
+                                      class="d-none">
                                     @csrf
                                 </form>
 

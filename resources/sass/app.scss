@@ -29,28 +29,67 @@ $theme-color-5: #C3073F;
     color: $theme-color-4;
 }
 
+
 #navbar-color {
     background: $theme-color-5;
-    box-shadow: $window-shadow;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 #body-color {
-    background-color: $theme-color-1;
-    background-attachment: fixed;
+    background: linear-gradient(-45deg, $theme-color-5, $theme-color-1, $theme-color-1, $theme-color-5);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 100vh;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .dropdown-menu a:active {
     background-color: $theme-color-4;
 }
-#link-edit-profile{
+
+#link-edit-profile {
     color: $theme-color-5;
     transition: .3s;
 }
-#link-edit-profile:hover{
+
+#link-edit-profile:hover {
     color: $theme-color-3;
-    transition: .3s;
 }
 
+//Scrollbar
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: $theme-color-1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $theme-color-5;
+    background: linear-gradient(180deg, $theme-color-5 0%, $theme-color-3 100%);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #1c1f23;
+}
+
+
+//Swipe
+#swipe-card {
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
 
 //Forms
 #form-window {
@@ -60,6 +99,7 @@ $theme-color-5: #C3073F;
 
 #text-button {
     color: $theme-color-4;
+    transition: .3s;
 }
 
 #text-button:active {
@@ -79,16 +119,18 @@ $theme-color-5: #C3073F;
 }
 
 // Profile Settings gender radio
-.radio{
+.radio {
     display: inline-flex;
     overflow: hidden;
     border-radius: 2px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.25);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
 }
-.radio__input{
+
+.radio__input {
     display: none;
 }
-.radio__label{
+
+.radio__label {
     padding: 8px 14px;
     font-size: 14px;
     color: $theme-color-1;
@@ -97,10 +139,12 @@ $theme-color-5: #C3073F;
     cursor: pointer;
     transition: 0.2s;
 }
-.radio__label:not(:last-of-type){
+
+.radio__label:not(:last-of-type) {
     border-right: 2px solid $theme-color-1;
 }
-.radio__input:checked + .radio__label{
+
+.radio__input:checked + .radio__label {
     background: $theme-color-5;
     transition: 0.2s;
 }
@@ -118,9 +162,13 @@ $theme-color-5: #C3073F;
     border-radius: 1px;
     border: none;
     color: $theme-color-1;
-    transition: .3s;
+    transition: .1s;
 }
 
+#btn-submit:hover {
+    background: $theme-color-5;
+    transition: .1s;
+}
 
 #update-profile-btn:hover {
     background-color: $theme-color-5;

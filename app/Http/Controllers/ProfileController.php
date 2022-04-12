@@ -49,7 +49,7 @@ class ProfileController extends Controller
         $user['image_path_resized'] = $input['image_resized_name'];
         $user->save();
 
-        return redirect(route('editProfile'));
+        return redirect(route('editProfile'))->with('message', 'Picture Updated Successfully');
     }
 
     public function updateProfile(Request $request)
@@ -86,7 +86,7 @@ class ProfileController extends Controller
             ]);
         }
 
-        return redirect(route("editProfile"));
+        return redirect(route("editProfile"))->with('message', 'Profile Updated Successfully');
     }
 
     public function gallery()
@@ -116,6 +116,42 @@ class ProfileController extends Controller
         ]);
 
         return redirect(route('gallery'));
+    }
+
+    public function configuration()
+    {
+        $userInfo = UserInfo::where('user_id', Auth::id())->first();
+
+        $validate = false;
+        $age='18';
+        $gender='';
+
+        if ($userInfo != null) {
+            $userInfo['filter_age'] == 0 ? $age = $userInfo['age'] : $age = $userInfo['filter_age'];
+            $userInfo['filter_gender'] == 'Female' ? $gender = 'checked' : $gender = '';
+            $validate = true;
+        }
+
+
+        return view('configuration', [
+            'age' => $age,
+            'checked' => $gender,
+            'validate'=>$validate,
+        ]);
+    }
+
+    public function updateFilters(Request $request)
+    {
+        $age = $request['amount'];
+        $gender = $request['myRadio'];
+
+        $userInfo = UserInfo::where('user_id', Auth::id())->first();
+
+        $userInfo['filter_age'] = $age;
+        $userInfo['filter_gender'] = $gender;
+        $userInfo->save();
+
+        return redirect(route('configuration'))->with('message', 'Filters Updated Successfully');
     }
 
 

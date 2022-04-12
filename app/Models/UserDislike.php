@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class UserDislike extends Model
 {
     use HasFactory;
+    protected $table = 'user_dislikes';
+
+    protected $fillable = [
+        'userId',
+        'dislikedUserId',
+    ];
 }

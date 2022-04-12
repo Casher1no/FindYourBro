@@ -20,7 +20,7 @@ class UserInfoFactory extends Factory
         $gender = rand(0,1);
         $gender == 0 ? $gender = "Male" : $gender = "Female";
 
-        $age = rand(18,80);
+        $age = rand(18,22);
 
         return [
             'user_id' => User::factory(),
