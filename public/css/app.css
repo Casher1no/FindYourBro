@@ -11298,6 +11298,18 @@ textarea.form-control-lg {
   color: #950740;
 }
 
+#btn-followers {
+  text-decoration: none;
+  color: #1A1A1D;
+  transition: 0.3s;
+}
+
+#btn-followers:hover {
+  text-decoration: none;
+  color: #4E4E50;
+  transition: 0.3s;
+}
+
 #navbar-color {
   background: #C3073F;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;

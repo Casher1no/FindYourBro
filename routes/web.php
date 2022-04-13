@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ImageController;
 use App\Models\UserDislike;
+use App\Models\UserFollow;
 use App\Models\UserLike;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -57,6 +58,10 @@ Route::post('/upload', [\App\Http\Controllers\ProfileController::class, 'addToGa
     ->name('addToGallery')
     ->middleware('auth');
 
+Route::get('/gallery/{id}',[\App\Http\Controllers\SwipeController::class,'gallery'])
+    ->name('view-gallery')
+    ->middleware('auth');
+
 Route::get('/gallery/delete/{id}', function ($id) {
     DB::table('user_gallery')->delete($id);
     return redirect('gallery');
@@ -78,3 +83,18 @@ Route::get('/dislike/{id}',function ($id){
     ]);
     return redirect(route('home'));
 })->name('dislike');
+
+Route::get('/follow/{id}',function ($id){
+    UserFollow::insert([
+        'user_id'=>Auth::id(),
+        'followed_user_id'=>$id,
+    ]);
+    return redirect(route('home'));
+})->name('follow');
+
+Route::get('/followers',[\App\Http\Controllers\SwipeController::class,'followers'])
+    ->name('followers')
+    ->middleware('auth');
+Route::get('/matches',[\App\Http\Controllers\SwipeController::class,'matches'])
+    ->name('matches')
+    ->middleware('auth');

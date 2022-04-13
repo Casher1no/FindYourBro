@@ -29,37 +29,43 @@ class HomeController extends Controller
      */
     public function index()
     {
+        //verification
         $verified = false;
+        $filters = false;
+        $userFound = false;
 
         $user = Auth::user();
         $userInfo = UserInfo::where('user_id', $user['id'])->first();
         if ($userInfo != null) $verified = true;
 
-        $likedUsers = UserLike::where('user_id',$user['id'])->get();
+        $likedUsers = UserLike::where('user_id', $user['id'])->get();
         $usersLikes = [];
-        foreach ($likedUsers as $likedUser){
+        foreach ($likedUsers as $likedUser) {
             $usersLikes[] = $likedUser['liked_user_id'];
         }
 
-        $dislikedUsers = UserDislike::where('user_id',$user['id'])->get();
+        $dislikedUsers = UserDislike::where('user_id', $user['id'])->get();
         $usersDislikes = [];
-        foreach ($dislikedUsers as $dislikedUser){
+        foreach ($dislikedUsers as $dislikedUser) {
             $usersDislikes[] = $dislikedUser['disliked_user_id'];
         }
 
-        $filters = false;
-        if($userInfo['filter_age'] != null || $userInfo['filter_gender'] != null){
+
+        if ($userInfo['filter_age'] != null || $userInfo['filter_gender'] != null) {
             $filters = true;
         }
 
         $randomUser = UserInfo::inRandomOrder()
-            ->whereNotIn('user_id', [...$usersDislikes,...$usersLikes,$user['id']])
-            ->where('age',$userInfo['filter_age'])
-            ->where('gender',$userInfo['filter_gender'])
+            ->whereNotIn('user_id', [...$usersDislikes, ...$usersLikes, $user['id']])
+            ->where('age', $userInfo['filter_age'])
+            ->where('gender', $userInfo['filter_gender'])
             ->first();
 
-        $randomUserInfo = User::where("id",$randomUser['user_id'])->first();
-        $randomUser['gender'] == 'Male' ? $backgroundShadowColor = '110, 245, 255' : $backgroundShadowColor = '250, 107, 255';
+        if ($randomUser != null) {
+            $randomUserInfo = User::where("id", $randomUser['user_id'])->first();
+            $randomUser['gender'] == 'Male' ? $backgroundShadowColor = '110, 245, 255' : $backgroundShadowColor = '250, 107, 255';
+            $userFound = true;
+        }
 
 
         // TODO when there is no bros to find, show title: No bros at the moment. (Bool)
@@ -67,9 +73,10 @@ class HomeController extends Controller
         return view('home', [
             'verified' => $verified,
             'filters' => $filters,
-            'swipe' => $randomUserInfo,
+            'search' => $userFound,
+            'swipe' => $randomUserInfo ?? '',
             'swipeInfo' => $randomUser,
-            'cardColor' => $backgroundShadowColor,
+            'cardColor' => $backgroundShadowColor ?? "",
         ]);
     }
 

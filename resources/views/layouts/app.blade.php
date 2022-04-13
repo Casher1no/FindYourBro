@@ -48,7 +48,8 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav me-auto">
                     @auth
-
+                        <a class="m-2" id="btn-followers" href="{{ route('followers') }}">You Follow</a>
+                        <a class="m-2" id="btn-followers" href="{{ route('matches') }}">Matches</a>
                     @endauth
                 </ul>
 
